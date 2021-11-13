@@ -1,0 +1,14 @@
+.table-styles {
+  cursor: pointer;
+}
+
+.table-styles tr:hover {
+  background-color: #2f9f908a;
+}
+
+.encabezado-tabla,
+h1 {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+}

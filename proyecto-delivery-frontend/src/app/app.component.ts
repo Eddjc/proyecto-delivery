@@ -7,4 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto-delivery-frontend';
+
+  regionVisible:string = '';
+
+  verEmpresas(id:any){
+    this.regionVisible = 'empresas'
+  }
+
+  verProductos(id:any){
+    this.regionVisible = 'productos' 
+  }
+  verMotoristas(id:any){
+    this.regionVisible = 'motoristas'  
+  }
+  verOrdenes(id:any){
+    this.regionVisible = 'ordenes' 
+   }
 }

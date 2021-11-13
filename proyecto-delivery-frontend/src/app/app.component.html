@@ -1,1 +1,30 @@
+<app-header></app-header>
+<div class="container-fluid py-5">
+  <div class="row">
+    <!-- sidebar -->
+    <div >
+      <app-sidebar (onVerEmpresa)="verEmpresas($event)" (onVerMotorista)="verMotoristas($event)" (onVerOrdenes)="verOrdenes($event)" (onVerProducto)="verProductos($event)" ></app-sidebar>    
+    </div>
+    <main role="main" class="main">
+      <!-- empresas -->
+      <div *ngIf="regionVisible == 'empresas'" class="">
+        <app-empresas></app-empresas>
+      </div>
+      <!-- productos -->
+      <div *ngIf="regionVisible == 'productos'">
+        <app-productos></app-productos>
+      </div>
+      <!-- motoristas -->
+      <div *ngIf="regionVisible == 'motoristas'">
+        <app-motoristas></app-motoristas>
+      </div>
+      <!-- ordenes -->
+      <div *ngIf="regionVisible == 'ordenes'">
+        <app-ordenes></app-ordenes>
+      </div>
+    </main>
+
+  </div>
+</div>
+
 <router-outlet></router-outlet>

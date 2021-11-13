@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-size: 0.875rem;
+  color: #ffffff;
+  /* background-image: url("./assets/img/StarWars.jpg"); */
+  background-color: #ddd9d9a6;
+  background-attachment: fixed;
+  min-height: 100vh;
+}

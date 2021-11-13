@@ -1,0 +1,15 @@
+.img-logo {
+  width: 140px;
+}
+
+.nav {
+  justify-content: space-between;
+  background: linear-gradient(to left, #000000, #2f9f90);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+}
