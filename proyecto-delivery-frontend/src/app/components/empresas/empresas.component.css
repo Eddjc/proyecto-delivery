@@ -12,3 +12,11 @@ h1 {
   justify-content: space-between;
   color: rgb(0, 0, 0);
 }
+
+.buscador {
+  display: flex;
+}
+
+.h4 {
+  color: #2b9385;
+}

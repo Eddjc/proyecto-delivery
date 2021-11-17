@@ -1,51 +1,83 @@
 <div class="encabezado-tabla">
   <div><h1 class=" mx-5 ">Empresas Registradas</h1></div>
+  <div class="buscador p-2 m-2">
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="categoriaSeleccionada">
+      <option selected>Seleccionar Categoria</option>
+      <option *ngFor="let categoria of categorias" [ngValue]="categoria._id" >{{categoria.nombreCategoria}}</option>
+    </select>
+    <div><button class="btn btn-success m-1" (click)="seleccionarCategoria()">Buscar</button></div>
+
+  </div>
   <div><button class="btn btn-success" (click)="abrirNuevaEmpresa(modalAddEmpresa)">Agregar</button></div>  
 </div>
 <table class="table mx-5 table-active table-styles">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        
+        <th scope="col">Logo</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Banner</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Calificacon</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let empresa of empresas">
+        <td>{{empresa.logo}}</td>
+        <td>{{empresa.nombreEmpresa}}</td>
+        <td>{{empresa.banner}}</td>
+        <td>{{empresa.descripcion}}</td>
+        <td>{{empresa.calificacion}}</td>
+        <td>
+          <button class="btn btn-danger m-1" (click)="eliminarEmpresa()">Eliminar</button>
+          <button class="btn btn-info m-1" (click)="abrirEditarEmpresa(modalEditarEmpresa)">Editar</button>
+        </td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      
     </tbody>
   </table>
 
+<!-- agregar nueva empresa -->
+<ng-template #modalAddEmpresa let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title h4" id="modal-basic-title">Nueva Empresa</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formularioRegistroEmpresa">
+      <div class="mb-3 py-3">
+        <input formControlName="logo" class="form-control p-3 m-2"  placeholder="logo">  
+        <input formControlName="nombreEmpresa" class="form-control p-3 m-2"  placeholder="Nombre de la empresa">  
+        <input formControlName="banner" class="form-control p-3 m-2"  placeholder="Banner">
+        <input formControlName="descripcion" class="form-control p-3 m-2"  placeholder="Descripcion">  
+        <select formControlName="categoria" class="form-select form-select-lg mb-3 " aria-label="Default select example" [(ngModel)]="categoriaSeleccionada">
+          <option selected>Seleccionar Categoria</option>
+          <option  *ngFor="let categoria of categorias" [ngValue]="categoria._id" >{{categoria.nombreCategoria}}</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button [disabled]="!formularioRegistroEmpresa.valid" type="button" class="btn btn-success" (click)="guardarEmpresa()">Guardar</button>
+      </div>
+    </form>
+  </div>
+  
+</ng-template>
 
-  <ng-template #modalAddEmpresa let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Nueva Empresa</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form>
-        
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="guardarEmpresa()">Guardar</button>
-    </div>
-  </ng-template>
+<ng-template #modalEditarEmpresa let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Editar Empresa</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="EditarEmpresa()">Actualizar</button>
+  </div>
+</ng-template>
