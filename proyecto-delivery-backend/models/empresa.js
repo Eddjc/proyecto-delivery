@@ -8,6 +8,7 @@ var esquema = new mongoose.Schema(
         descripcion: String,
         calificacion: String,
         productos: Array
+        
     }
 );
 

@@ -3,8 +3,8 @@ var mongoose = require('mongoose');
 var esquema = new mongoose.Schema(
     {
         nombreCategoria: String,
-        imgCategoria: String,
-        empresas: Array,
+        imagenCategoria: String,
+        empresas: Array 
     }
 );
 
