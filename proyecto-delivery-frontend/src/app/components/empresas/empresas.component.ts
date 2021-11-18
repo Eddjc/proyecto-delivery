@@ -57,7 +57,7 @@ export class EmpresasComponent implements OnInit {
     ).subscribe(res=>{
       console.log(res);
         this.modalService.dismissAll();
-        this.empresas.push(res);
+        this.empresas.push(res)
     },error=>console.log(error));
     
   }
